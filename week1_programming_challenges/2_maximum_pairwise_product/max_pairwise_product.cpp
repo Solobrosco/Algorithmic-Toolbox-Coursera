@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-long long MaxPairwiseProduct(const std::vector<int>& numbers) {
+long long MaxPairwiseProductMax2(const std::vector<int>& numbers) {
     int n = numbers.size();
 
     int index1 = -1;
@@ -20,6 +20,12 @@ long long MaxPairwiseProduct(const std::vector<int>& numbers) {
     return ((long long) (numbers[index1])) * numbers[index2];
 }
 
+long long MaxPairwiseProductSort(const std::vector<int>& numbers){
+    int n = numbers.size();
+    std::sort(numbers.begin(), numbers.end());
+    return (long long)numbers[n-1] * numbers[n-2];;
+}
+
 int main() {
     int n;
     std::cin >> n;
@@ -28,7 +34,7 @@ int main() {
         std::cin >> numbers[i];
     }
 
-    long long result = MaxPairwiseProduct(numbers);
+    long long result = MaxPairwiseProductSort(numbers);
     std::cout << result << std::endl;
     return 0;
 }
