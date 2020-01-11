@@ -21,7 +21,7 @@ int get_fibonacci_last_digit_fast(long long n){
         return n;
     }
     int b = 0, a = 1;
-    for(int i = 0; i < n; ++i){
+    for(int i = 0; i < n - 1; ++i){
         int temp = b % 10;
         b = a % 10;
         a = temp + a % 10; 
