@@ -12,9 +12,20 @@ int gcd_naive(int a, int b) {
   return current_gcd;
 }
 
+int gcd_euclidian(int a, int b){
+  int div = a >= b ? a : b;
+  int dd = a <= b ? a : b;
+  while(div != 0){
+    int r = dd % div;
+    dd = div;
+    div = r;
+  }
+  return dd;
+}
+
 int main() {
   int a, b;
   std::cin >> a >> b;
-  std::cout << gcd_naive(a, b) << std::endl;
+  std::cout << gcd_euclidian(a, b) << std::endl;
   return 0;
 }
