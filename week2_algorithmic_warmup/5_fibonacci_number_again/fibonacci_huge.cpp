@@ -16,8 +16,35 @@ long long get_fibonacci_huge_naive(long long n, long long m) {
     return current % m;
 }
 
+long long period_length(long long m){
+    long long f1 = 0;
+    long long f2 = 1;
+    long long f = f1 + f2;
+    for(int i = 0; i < m * m; i++){
+        f = (f1 + f2) % m;
+        f1 = f2;
+        f2 = f;
+        if(f1 == 0 && f2 == 1){
+            return i + 1;
+        }
+    }
+}
+
+long long get_fibonacci_huge_fast(long long n, long long m){
+    long long r = n % period_length(m);
+    long long f1 = 0;
+    long long f2 = 1;
+    long long f = r;
+    for(int i = 1; i < r; i++){
+        f = (f1 + f2) % m;
+        f1 = f2;
+        f2 = f;
+    }
+    return f % m;
+}
+
 int main() {
     long long n, m;
     std::cin >> n >> m;
-    std::cout << get_fibonacci_huge_naive(n, m) << '\n';
+    std::cout << get_fibonacci_huge_fast(n, m) << '\n';
 }
