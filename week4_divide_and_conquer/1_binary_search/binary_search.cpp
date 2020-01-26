@@ -14,7 +14,7 @@ int binary_search(const vector<int> &a, int x) {
     }else if(x < a[middle]){
       right = middle - 1;
     }else{
-      left = middle - 1; 
+      left = middle + 1; 
     }
   }
   return -1;

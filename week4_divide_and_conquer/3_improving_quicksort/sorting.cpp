@@ -6,9 +6,9 @@ using std::vector;
 using std::swap;
 
 vector<int> partition(vector<int> &a, int l, int r){
-  int x = a[1];
-  int p1 = 1;
-  int i = 1;
+  int x = a[l];
+  int p1 = l;
+  int i = l;
   int pe = r;
   vector<int> m(2);
   while(i <= pe){
